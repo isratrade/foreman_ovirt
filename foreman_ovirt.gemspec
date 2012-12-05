@@ -31,9 +31,7 @@ Gem::Specification.new do |s|
     "config/routes.rb",
     "foreman_ovirt.gemspec",
     "lib/engine.rb",
-    "lib/foreman_ovirt.rb",
-    "test/helper.rb",
-    "test/test_foreman_reserve.rb"
+    "lib/foreman_ovirt.rb"
   ]
   s.homepage = "http://github.com/isratrade/foreman_ovirt"
   s.licenses = ["MIT"]
