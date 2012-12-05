@@ -1,0 +1,48 @@
+<% javascript 'charts' %>
+<% title @host.to_label, icon(@host.os) + @host.to_label %>
+
+<% @vm = @host.compute_resource.find_vm_by_uuid(@host.uuid) rescue nil %>
+<%= host_title_actions(@host, @vm) %>
+<% content_for(:search_bar) {reports_show} %>
+
+<div class="row-fluid">
+  <div class="span4">
+    <ul id="myTab" class="nav nav-tabs">
+      <li class="active"><a href="#properties" data-toggle="tab">Properties</a></li>
+      <li><a href="#metrics" data-toggle="tab">Metrics</a></li>
+      <% if SETTINGS[:unattended] %>
+        <li><a href="#template" data-toggle="tab">Templates</a></li>
+      <% end %>
+      <%  if @vm %>
+          <li><a href="#vm" data-toggle="tab">Virtual Machine</a></li>
+      <% end %>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="properties">
+        <%# CHANGED HERE %>
+        <%= render :partial => "foreman_ovirt/hosts/overview", :locals => { :host => @host } %>
+      </div>
+      <div class="tab-pane" id="metrics">
+        <% if @report_summary.size == 0 -%>
+            <p>No puppet activity for this host in the last <%= @range %> days</p>
+        <% else -%>
+            <%= render :partial => "hosts/metrics", :locals => { :report_summary => @report_summary[@host.name][:metrics] } %>
+        <% end -%>
+      </div>
+      <div class="tab-pane" id="template">
+        <%= show_templates -%>
+      </div>
+      <div class="tab-pane" id="vm">
+        <%  if @vm %>
+          <% @compute_resource = @host.compute_resource %>
+          <%= render("compute_resources_vms/show/#{@host.compute_resource.provider.downcase}") rescue nil %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+  <div class="span8">
+    <%= runtime_chart 'runtime_graph', 'Runtime', "last #{@range} days", @host.runtime_chart(@range.days.ago) %>
+    <%= report_status_chart 'resource_graph', 'Resources', "last #{@range} days", @host.resources_chart(@range.days.ago) %>
+  </div>
+</div>

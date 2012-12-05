@@ -1,37 +1,6 @@
-= foreman_reserve
+= foreman_ovirt
 
-This gem will added a route to the API to return the name of available host(s)
-
-= Installation:
-
-gem 'foreman_reserve', :git => "https://github.com/isratrade/foreman_reserve.git"
-
-In order to work, the foreman application must be the following two lines commented out.
-
-config/routes.rb 
-	# match '*a', :to => 'errors#routing'
-
-config/routes/v1.rb
-	# match '*other', :to => 'home#route_error'
-
-= Usage
-
-To return 1 host:
-curl -u admin:secret -H 'accept:application/json' http://0.0.0.0:3000/api/hosts_reserve
-
-To return multiple hosts, pass a parameter called 'amount'
-
-curl -u admin:secret -H 'accept:application/json' http://0.0.0.0:3000/api/hosts_reserve?amount=3
-
-== Contributing to foreman_reserve
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+Test engine for ovirt-foreman integration
 
 == Copyright
 

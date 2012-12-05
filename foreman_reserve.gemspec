@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "foreman_reserve"
+  s.name = "foreman_ovirt"
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -24,19 +24,19 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "app/controllers/foreman_reserve/hosts_controller.rb",
-    "app/models/foreman_reserve/host.rb",
+    "app/controllers/foreman_ovirt/hosts_controller.rb",
+    "app/models/foreman_ovirt/host.rb",
     "config/routes.rb",
-    "foreman_reserve.gemspec",
+    "foreman_ovirt.gemspec",
     "lib/application_controller.rb",
     "lib/application_helper.rb",
     "lib/engine.rb",
-    "lib/foreman_reserve.rb",
+    "lib/foreman_ovirt.rb",
     "lib/rails/railties/tasks.rake",
     "test/helper.rb",
-    "test/test_foreman_reserve.rb"
+    "test/test_foreman_ovirt.rb"
   ]
-  s.homepage = "http://github.com/isratrade/foreman_reserve"
+  s.homepage = "http://github.com/isratrade/foreman_ovirt"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"

@@ -14,11 +14,11 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "foreman_reserve"
-  gem.homepage = "http://github.com/isratrade/foreman_reserve"
+  gem.name = "foreman_ovirt"
+  gem.homepage = "http://github.com/isratrade/foreman_ovirt"
   gem.license = "MIT"
-  gem.summary = %Q{Plugin engine for Foreman to reserve a host}
-  gem.description = %Q{Plugin engine for Foreman to reserve a host}
+  gem.summary = %Q{Plugin engine for Foreman-Ovirt integration}
+  gem.description = %Q{view Foreman host inside Ovirt}
   gem.email = "jmagen@redhat.com"
   gem.authors = ["Joseph Mitchell Magen"]
   # dependencies defined in Gemfile
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "foreman_reserve #{version}"
+  rdoc.title = "foreman_ovirt #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

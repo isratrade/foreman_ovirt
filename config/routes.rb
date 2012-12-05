@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
-  get "api/hosts_reserve" => "foreman_reserve/hosts#reserve"
+  constraints(:id => /[^\/]+/) do
+    get "hosts/:id/ovirt" => "foreman_ovirt/hosts#show"
+  end
 
 end
