@@ -2,6 +2,16 @@
 
 Test engine for ovirt-foreman integration
 
+= Install
+
+gem ''
+
+= Usage
+
+Get to view host and add /ovirt to the path
+
+Example:  localhost/hosts/foreman-test.sat.lab.tlv.redhat.com/ovirt
+
 == Copyright
 
 Copyright (c) 2012 Joseph Mitchell Magen. See LICENSE.txt for
