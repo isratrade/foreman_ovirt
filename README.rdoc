@@ -12,13 +12,10 @@ gem 'foreman_ovirt', :git => "https://github.com/isratrade/foreman_ovirt"
 Modify the following files in Foreman installation
 
 #	remove this line:   app/views/home/_settings.html.erb
-
--         <%= content_tag(:li, link_to(item[0], {:controller => item[1], :action => :index})) %>
 +         <%#= content_tag(:li, link_to(item[0], {:controller => item[1], :action => :index})) %>
 
 #	modified:   app/helpers/hosts_helper.rb
-
--          link_to(icon_text('eye-open'), url_for(:controller => 'unattended', :action => tmplt.template_kind.name, :spoof => @host.ip), :title => "Review", :"data-provisioning-template" => true ))
+#   add / in front of /unattended
 +          link_to(icon_text('eye-open'), url_for(:controller => '/unattended', :action => tmplt.template_kind.name, :spoof => @host.ip), :title => "Review", :"data-provisioning-template" => true ))
 
 = Usage
