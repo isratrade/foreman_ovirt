@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "app/views/foreman_ovirt/hosts/show.html.erb",
     "app/views/foreman_ovirt/layouts/application_ovirt.html.erb",
     "config/routes.rb",
+    "foreman_ovirt.gemspec",
     "foreman_reserve.gemspec",
     "lib/engine.rb",
     "lib/foreman_ovirt.rb",
