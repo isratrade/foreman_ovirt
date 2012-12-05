@@ -13,11 +13,11 @@ Modify the following files in Foreman installation
 1. app/views/home/_settings.html.erb
 2. app/helpers/hosts_helper.rb
 
-1. remove this line in app/views/home/_settings.html.erb
+Remove this line in app/views/home/_settings.html.erb
 
     <%#= content_tag(:li, link_to(item[0], {:controller => item[1], :action => :index})) %>
 
-2.	in app/helpers/hosts_helper.rb, add a slash (/) in front of "unattended"
+In app/helpers/hosts_helper.rb, add a slash (/) in front of "unattended"
 
     link_to(icon_text('eye-open'), url_for(:controller => '/unattended', :action => tmplt.template_kind.name, :spoof => @host.ip), :title => "Review", :"data-provisioning-template" => true ))
 
