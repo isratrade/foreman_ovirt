@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joseph Mitchell Magen"]
-  s.date = "2012-12-05"
+  s.date = "2012-12-06"
   s.description = "view Foreman host inside Ovirt"
   s.email = "jmagen@redhat.com"
   s.extra_rdoc_files = [
