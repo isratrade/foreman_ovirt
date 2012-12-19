@@ -1,6 +1,6 @@
 module ForemanOvirt
-	 module UserExtensions
-		extend ActiveSupport::Concern
+  module UserExtensions
+    extend ActiveSupport::Concern
 
 	 	included do
 	 		after_save :add_role_to_user
@@ -13,5 +13,7 @@ module ForemanOvirt
     		end
 		end
 
-   end
+  end
 end
+# Add Ovirt role to ovirt user
+User.send :include, ForemanOvirt::UserExtensions

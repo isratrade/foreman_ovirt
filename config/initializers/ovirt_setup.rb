@@ -1,24 +1,15 @@
-module ForemanOvirt
-  module DefaultData
-    class DataAlreadyLoaded < Exception; end
-    module Loader
-      class << self
-        def load(reset=false)
-          Role.transaction do
-            ovirt_role = Role.where(:name => "Ovirt").empty? ? Role.create(:name => "Ovirt") : Role.where(:name => "Ovirt")[0]
-            if reset || ovirt_role.permissions.empty?
-              ovirt_role.update_attribute :permissions, [:view_ovirt]
-            end
-          end
-          true
-        end
-      end
-    end
+# Add permissions
+Foreman::AccessControl.map do |map|
+   map.security_block :ovirt do |map|
+        map.permission :view_ovirt, { 'foreman_ovirt/hosts' => [:show] }
+   end
+end
+
+# Add a new role called 'Ovirt' if it doesn't exist
+Role.transaction do
+  ovirt_role = Role.find_or_create_by_name("Ovirt")
+  if ovirt_role.permissions.empty?
+    ovirt_role.update_attribute :permissions, [:view_ovirt]
   end
 end
-# Add a new role called 'Ovirt' if it doesn't exist
-ForemanOvirt::DefaultData::Loader.load(false)
-# Add permissions for role Ovirt
-Foreman::AccessControl.send :include, ForemanOvirt::AccessControlExtensions
-# Add Ovirt role to ovirt user
-User.send :include, ForemanOvirt::UserExtensions
+
